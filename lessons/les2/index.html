@@ -10,12 +10,43 @@
 	<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
 	
 	<div id="app">
-		<span @mouseover="changeText">Text</span>
-		<p>{{ title }}</p>
-		<p v-bind:class="styleCSS">Color: {{ styleCSS }}</p>
-		
-		<input type="text" v-on:input="styleCSS = $event.target.value">
 
+		<span v-on:click="title = 'TEXT' ">text on click</span>
+
+		<br>
+
+		<span v-on:click="changeText">Change Text</span>
+
+		
+		<p>{{ title }}</p>
+
+		<hr>
+
+		<p v-bind:class="className">Color: {{ className }}</p>
+
+		<input type="text" v-on:input="className = $event.target.value">
+	</div>
+
+
+
+	<!-- <br><br><br><br> -->
+
+
+
+	<!-- <h2>HOME TASK 1</h2>
+
+	<div id="app-home-1">
+		
+		<input type="text" placeholder="Enter-text" v-on:input="inputText = $event.target.value">
+		<button v-on:click="sendText">Sent text</button>
+		<span>{{ beforeText }}</span>
+
+	</div> -->
+
+	<hr>
+
+	<div id="app-home-2">
+		<button v-on:click="isDisabled = !isDisabled" v-bind:dasabled="isDisabled">Click to Disadled</button>
 	</div>
 
 	<script src="js/main.js"></script>
