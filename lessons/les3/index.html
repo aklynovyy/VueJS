@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue Js Les1</title>
+
+	<link rel="stylesheet" href="css/style.css"></link>
+</head>
+<body>
+	<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+	
+	<div id="app">
+		<input type="text" v-on:input="increment ($event.target.value)">
+		<p>{{ value }}</p>
+		<p>{{ doubleValue }}</p>
+	</div>
+
+	<script src="js/main.js"></script>
+</body>
+</html>

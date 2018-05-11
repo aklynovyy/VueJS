@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue Js Les1</title>
+
+	<link rel="stylesheet" href="css/style.css"></link>
+</head>
+<body>
+	<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+	
+	<div id="app">
+		<span @mouseover="changeText">Text</span>
+		<p>{{ title }}</p>
+		<p v-bind:class="styleCSS">Color: {{ styleCSS }}</p>
+		
+		<input type="text" v-on:input="styleCSS = $event.target.value">
+
+	</div>
+
+	<script src="js/main.js"></script>
+</body>
+</html>
