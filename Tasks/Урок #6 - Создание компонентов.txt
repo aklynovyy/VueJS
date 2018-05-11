@@ -1,0 +1,154 @@
+Код из видео урока
+HTML код
+<div id="app">
+   <app-car></app-car>
+</div>
+
+<div id="app2">
+   <hr>
+   <app-car></app-car>
+</div>
+Vue.js код
+Vue.component ('app-car', {
+  data: function () {
+    return {
+      cars: [
+        {model: "BMW"},
+        {model: "Volvo"},
+        {model: "Mercedes-Benz"},
+        {model: "Ford"},
+        {model: "Audi"},
+        {model: "Siat"},
+        {model: "Fiat"}
+      ]
+    }
+  },
+  template: '<div><div class="car" v-for="car in cars"><p>{{ car.model }}</p></div></div>'
+});
+
+new Vue ({
+  el: '#app',
+  components: {
+    'app-car': {
+
+    }
+  }
+});
+
+new Vue ({
+  el: '#app2'
+});
+Стили для блоков в уроке
+.car {
+  width: 30%;
+  margin: 10px 31%;
+  background: #fafafa;
+  border: 2px solid silver;
+  border-radius: 10px;
+  padding: 1.2% 2%;
+  color: #474747;
+  font-size: 1.1em;
+}
+
+
+
+Домашнее задание к видео уроку
+
+1.Локальный компонент
+Создайте локальный компонент и выведите текст "Отличный день" только если переменная show будет равна true.
+
+
+2.Глобальный компонент
+Создайте глобальный компонент, который будет выводить кнопку. При нажатии на эту кнопку значение глобальной переменной counter будет увеличиваться на 1. В самой кнопке просто выводите значение переменной.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.
+Изначально пропишем Vue.js код:
+new Vue ({
+  el: '#app',
+  components: {
+    'app-day': {
+      data: function () {
+        return {
+          show: true
+        }
+      },
+      template: 'Отличный день'
+    }
+  }
+});
+Здесь мы создали локальный компонент с именем "app-day" и шаблон, в котором есть атрибут v-if. Благодаря этой проверке строка будет выводиться только если переменная show будет равна true. Теперь добавим HTML для вывода всего на экран:
+<div id="app">
+  <app-day></app-day>
+</div>
+
+
+
+2.Для начала напишем Vue.js код:
+var data = { counter: 0 }
+Vue.component('simple-counter', {
+  template: '{{ counter }}',
+  data: function () {
+    return data
+  }
+})
+
+new Vue ({
+  el: '#app'
+});
+Таким образом у нас есть глобальная переменная, которая сохраняется для всех компонентов. При нажатии на кнопку мы её увеличиваем на единицу. Теперь осталось это вывести в HTML коде:
+<div id="app">
+  <simple-counter></simple-counter>
+  <simple-counter></simple-counter>
+  <simple-counter></simple-counter>
+</div>
+

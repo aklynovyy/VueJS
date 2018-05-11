@@ -1,0 +1,25 @@
+Код из видео урока
+Вывод фильтров в HTML
+<p>{{ message | lowercase | capatilize }}</p>
+Vue.js код
+Vue.filter ('capatilize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.replace(/w/g, function(l) { return l.toUpperCase() })
+});
+
+new Vue ({
+  el: '#app',
+  data: {
+    message: 'Hello world, hello'
+  },
+  computed: {
+    showMess () {
+      return this.message.toUpperCase ()
+    }
+  },
+  filters: {
+    lowercase (value) {
+      return value.toLowerCase ()
+    }
+  }

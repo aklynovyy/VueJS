@@ -1,0 +1,150 @@
+1.Функциональная кнопка
+Создайте кнопку (button) в HTML документе. При двойном нажатии на нее в тег span должна добавляться подсказка (title атрибут). Текст этой подсказки берется из текстового поля, в который пользователь может ввести все что угодно.
+
+2.Деактивация кнопки
+Создайте HTML кнопку. При нажатии на эту кнопку она будет становиться неактивной.
+
+3.Проверка значений
+Создайте текстовое поле и делайте его неактивным как только пользователь введет слово "Деактивировать" в само текстовое поле.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.Для решения задачи вам понадобиться следующий HTML код:
+<div id="app">
+  <button v-on:dblclick="insertText">Применить изменения</button>
+  <br>
+  <span v-bind:title="title">Здесь просто текст</span><br>
+  <input type="text" v-on:input="saveInput = $event.target.value">
+</div>
+Также вам понадобиться JS код:
+new Vue ({
+  el: '#app',
+  data: {
+    saveInput: "",
+    title: ""
+  },
+  methods: {
+    insertText () {
+      this.title = this.saveInput
+    }
+  }
+});
+
+2.HTML код:
+<div id="app">
+  <button @click="isDisabled = !isDisabled" v-bind:disabled="isDisabled">Деактивировать</button>
+</div>
+Vue.js код:
+new Vue ({
+  el: '#app',
+  data: {
+    isDisabled: false
+  }
+});
+
+
+3.Сначала HTML код:
+<div id="app">
+  <input type="text" v-on:input="updateInput ($event.target.value)" v-bind:disabled="isDisabled">
+</div>
+Vue.js код:
+new Vue ({
+  el: '#app',
+  data: {
+    isDisabled: false
+  },
+  methods: {
+    updateInput (value) {
+      if (value == "Деактивировать")
+        this.isDisabled = true
+    }
+  }
+});

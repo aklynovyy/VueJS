@@ -1,0 +1,204 @@
+Код из видео урока
+Main.js
+import Vue from 'vue'
+import App from './App.vue'
+import Example from './Example.vue'
+
+Vue.component ('app-example', Example)
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
+App.vue
+<template>
+  <div id="app">
+    <app-example></app-example>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+
+    }
+  }
+}
+</script>
+Example.vue
+<template>
+  <div>
+    <h1>Пробный текст</h1>
+    <app-input></app-input>
+  </div>
+</template>
+
+<script>
+  import Input from './Field.vue';
+
+  export default {
+    components: {
+      'app-input': Input
+    }
+  }
+</script>
+Field.vue
+<template>
+  <div>
+    <input type="text" v-model="mess">
+    <p>{{ mess }}</p>
+  </div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        mess: ''
+      }
+    }
+  }
+</script>
+
+
+Домашнее задание к видео уроку
+
+Создание компонентов
+Вам необходимо создать несколько компонентов и вывести их на экран. Пример того, как это должно выглядеть наведен ниже:
+
+https://itproger.com/img/courses/components-vue.png
+
+Вам нужно создать компонент Header (шапка сайта), а также компонент блока сайта. После чего вывести эти компоненты в файле App.vue.
+PS: вам необходимо добавить стили к блокам, чтобы они выглядели примерно также как на фото выше. Никакой дополнительной логики для этих блоков можете не добавлять. Просто шаблоны со стилями.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Для решения этого задания вам необходимо создать два новых Vue файла: Header.vue и Block.vue. Их необходимо подключить к фалу main.js и создать соответсвующие компоненты: 
+
+import Vue from 'vue'
+import App from './App.vue'
+import Header from './Header.vue'
+import Block from './Block.vue'
+
+Vue.component ('app-head', Header)
+Vue.component ('app-block', Block)
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
+После этого необходимо заполнить файлы Hedaer и Block. Вы можете это сделать на свое усмотрение, я же добавил следующий HTML-код и стили:
+
+<template>
+  <div id="header">
+    <h1>{{ message }}</h1>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        message: 'Пробный текст'
+      }
+    }
+  }
+</script>
+
+<style>
+#header {
+  width: 96%;
+  padding: 2%;
+  background: #f0f0f0;
+  border-bottom: 2px solid silver;
+}
+</style>
+И файл Block.vue
+<template>
+  <div class="block">
+    <p>Просто обычный текст</p>
+  </div>
+</template>
+
+<style>
+.block {
+  margin: 50px 25%;
+  width: 46%;
+  padding: 2%;
+  background: #fafafa;
+  color: #333;
+  border: 2px solid silver;
+  border-radius: 5px;
+}
+</style>
+Последнее что вам останется сделать, так это выводить компоненты в нашем основном файле App.vue:
+<template>
+  <div id="app">
+    <app-head></app-head>
+    <app-block></app-block>
+    <app-block></app-block>
+    <app-block></app-block>
+  </div>
+</template>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+</style>
+В этом файле я также добавил общие стили, чтобы убрать все отступы для блоков.
